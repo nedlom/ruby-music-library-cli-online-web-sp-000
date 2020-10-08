@@ -26,7 +26,7 @@ class Song
   
   def self.create(name, artist=nil, genre=nil)
     song = self.new(name, artist=nil, genre=nil)
-    song.save
+    song.save 
     song
   end
   
@@ -57,7 +57,8 @@ class Song
     song
   end
   
+  # See #list_songs in music_library_controller.rb for .save below explanation
   def self.create_from_filename(filename)
-    new_from_filename(filename).save
+    new_from_filename(filename) #.save
   end
 end
