@@ -42,22 +42,22 @@ class MusicLibraryController
     # songs = Song.all.uniq 
     # songs = songs.sort!{|a,b| a.name <=> b.name}
     Song.all.sort!{|a,b| a.name <=> b.name}
-    Song.all.each_with_index do |song, index|
-      puts "#{index + 1}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
+    Song.all.each_with_index do |song, i|
+      puts "#{i + 1}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
     end
   end
   
   def list_artists
     artists = Artist.all.collect{|a| a.name}.sort!
-    artists.each_with_index do |artist, index|
-      puts "#{index + 1}. #{artist}"
+    artists.each_with_index do |artist, i|
+      puts "#{i + 1}. #{artist}"
     end
   end
 
   def list_genres
     genres = Genre.all.collect{|g| g.name}.sort!
-    genres.each_with_index do |genre, index|
-      puts "#{index + 1}. #{genre}"
+    genres.each_with_index do |genre, i|
+      puts "#{i + 1}. #{genre}"
     end
   end
   
