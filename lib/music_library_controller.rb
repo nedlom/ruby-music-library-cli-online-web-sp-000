@@ -38,9 +38,9 @@ class MusicLibraryController
   # Check all songs being duplicated. 
   # Duplication was due to .save in lib/song #create_from_filename
   # requiring a .uniq on Song.all below
+  # songs = Song.all.uniq 
+  # songs = songs.sort!{|a,b| a.name <=> b.name} ...
   def list_songs
-    # songs = Song.all.uniq 
-    # songs = songs.sort!{|a,b| a.name <=> b.name}
     Song.all.sort!{|a,b| a.name <=> b.name}
     Song.all.each_with_index do |song, i|
       puts "#{i + 1}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
